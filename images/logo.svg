@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 80" width="60" height="80">
+  <!-- North Star -->
+  <g transform="translate(30, 10)">
+    <!-- 4-point star -->
+    <polygon points="0,-8 2,-2 8,0 2,2 0,8 -2,2 -8,0 -2,-2" fill="#4a8c6a"/>
+    <!-- 4 diagonal points -->
+    <polygon points="0,-5 1.2,-1.2 5,0 1.2,1.2 0,5 -1.2,1.2 -5,0 -1.2,-1.2" fill="#6aaa88" transform="rotate(45)"/>
+  </g>
+  <!-- Column capital -->
+  <rect x="16" y="22" width="28" height="4" rx="1" fill="#4a8c6a"/>
+  <!-- Column shaft with slight taper -->
+  <path d="M19,26 L17,62 L43,62 L41,26 Z" fill="#5a9e78"/>
+  <!-- Fluting lines on shaft -->
+  <line x1="24" y1="26" x2="22.5" y2="62" stroke="#4a8c6a" stroke-width="0.8" opacity="0.6"/>
+  <line x1="30" y1="26" x2="30" y2="62" stroke="#4a8c6a" stroke-width="0.8" opacity="0.6"/>
+  <line x1="36" y1="26" x2="37.5" y2="62" stroke="#4a8c6a" stroke-width="0.8" opacity="0.6"/>
+  <!-- Column base -->
+  <rect x="15" y="62" width="30" height="4" rx="1" fill="#4a8c6a"/>
+  <rect x="12" y="66" width="36" height="4" rx="1" fill="#3d7a5a"/>
+  <!-- Stylobate -->
+  <rect x="10" y="70" width="40" height="5" rx="1" fill="#3d7a5a"/>
+</svg>

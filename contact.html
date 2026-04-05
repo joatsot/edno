@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Edition Nordstern — music publisher in Stuttgart, Germany.">
+  <title>Edition Nordstern — Contact</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10798239983"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-10798239983');
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <a href="index.html"><img src="images/logo.gif" alt="Edition Nordstern" class="logo"></a>
+      <div class="site-title">
+        <a href="index.html">Edition Nordstern</a>
+      </div>
+    </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="catalog.html" data-i18n="nav.catalog">Catalog</a></li>
+        <li><a href="composers.html" data-i18n="nav.composers">Composers</a></li>
+        <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="links.html" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <a href="contact.html" class="header-social" aria-label="Contact Edition Nordstern"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></a>
+      <a href="https://www.facebook.com/editionnordstern" class="header-social" target="_blank" rel="noopener" aria-label="Edition Nordstern on Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+
+<main class="main-content">
+  <div class="page-body">
+
+    <div class="content-section">
+      <h2 data-i18n="contact.heading">Get in Touch</h2>
+
+      <p data-i18n-html="contact.p1">The <a href="https://de.wikipedia.org/wiki/Edition_Nordstern" target="_blank" rel="noopener">Edition Nordstern</a> is located in a residential area on one of hills that surround the city of Stuttgart. Stuttgart is the largest city in south-west Germany and the capital of the State of Baden-Württemberg.</p>
+
+      <address class="address-block">
+        <strong>Edition Nordstern</strong>
+        Spitzwegstr. 17<br>
+        D-70192 Stuttgart<br>
+        Germany<br><br>
+        phone: +49 152 2957 1505<br>
+        e-mail: <a href="mailto:raff@edno.de">raff@edno.de</a>
+      </address>
+
+      <img src="images/DSCF0813-Enhanced-NR.jpg" alt="Edition Nordstern Stuttgart" class="contact-photo">
+
+      <p data-i18n="contact.run">The company is run by Volker Tosta and is supported by a group of international collaborators.</p>
+
+      <p data-i18n="contact.orders">You can place orders via phone, or e-mail. You will receive a confirmation via e-mail and a request for payment via Paypal.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; Edition Nordstern, Stuttgart &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
+</footer>
+
+<script src="lang.js"></script>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+<script>
+  // Auto-update footer date from Google Sheets
+  (function() {
+    var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwVEev_sLw7wXNzUV6dlCsGO34Z2EDArJwoXRRo5XBoZPh2nV-K9XkH2K7c2Uyi6Tv0Ng/exec?type=meta';
+    fetch(SHEETS_URL).then(function(r){ return r.json(); }).then(function(d){
+      var el = document.getElementById('footer-date');
+      if (el && d.lastUpdated) {
+        var date = new Date(d.lastUpdated);
+        el.textContent = date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+      }
+    }).catch(function(){});
+  })();
+</script>
+</body>
+</html>

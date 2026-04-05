@@ -1,0 +1,165 @@
+{
+  "lastUpdated": "2024-12",
+  "composers": [
+    {
+      "name": "Joachim Raff",
+      "id": "raff",
+      "wikipediaUrl": "https://de.wikipedia.org/wiki/Joachim_Raff",
+      "entries": [
+        { "title": "Complete piano sonatas: e flat minor, op. 14 (versions 1844 and 1882), Fantasy sonata for piano, d minor, op. 168", "series": "I/1-3", "orderNo": "0101-ALL0", "price": "49.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Piano sonata, e flat minor, op. 14, first version 1844", "series": "I/1", "orderNo": "0101-0141", "price": "18.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Piano sonata, e flat minor, op. 14, second version 1882", "series": "I/2", "orderNo": "0101-0142", "price": "22.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Fantasy sonata for piano, d minor, op. 168", "series": "I/3", "orderNo": "0101-1680", "price": "20.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Piano suites Nos 1-3, op. 69, 71, 72", "series": "II/1-3", "orderNo": "0102-1313", "price": "49.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "Piano suite No. 1, a minor, op. 69", "series": "II/1", "orderNo": "0102-0690", "price": "18.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Piano suite No. 2, c major, op. 71", "series": "II/2", "orderNo": "0102-0710", "price": "18.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Piano suite No. 3, e minor, op. 72", "series": "II/3", "orderNo": "0102-0720", "price": "20.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Two pieces for piano: \u201cCavatina\u201d and \u201cLa Fileuse\u201d, op. 157", "series": "III/1", "orderNo": "0103-1570", "price": "13.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "From the Advent Season / Aus der Adventzeit, eight pieces for piano, op. 216", "series": "III/7", "orderNo": "0103-2160", "price": "24.00", "binding": "sc", "inStock": true, "isNew": true },
+        { "title": "Scherzo for piano op. 3 (original and revised versions)", "series": "III/8", "orderNo": "0103-0030", "price": "24.00", "binding": "sc", "inStock": true, "isNew": true },
+        { "title": "Six suites for cello solo by J.S. Bach transcribed for piano by Raff", "series": "V/1", "orderNo": "0105-2170", "price": "59.00", "binding": "hc", "inStock": "soon", "isNew": false },
+        { "title": "Cello suite No. 1 by J.S. Bach transcribed for piano, g major", "series": "V/1a", "orderNo": "0105-2171", "price": "16.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Cello suite No. 2 by J.S. Bach transcribed for piano, d minor", "series": "V/1b", "orderNo": "0105-2172", "price": "16.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Cello suite No. 3 by J.S. Bach transcribed for piano, c major", "series": "V/1c", "orderNo": "0105-2173", "price": "16.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Cello suite No. 4 by J.S. Bach transcribed for piano, e flat major", "series": "V/1d", "orderNo": "0105-2174", "price": "16.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Cello suite No. 5 by J.S. Bach transcribed for piano, c minor", "series": "V/1e", "orderNo": "0105-2175", "price": "16.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Cello suite No. 6 by J.S. Bach transcribed for piano, d major", "series": "V/1f", "orderNo": "0105-2176", "price": "16.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Violin sonata No. 4, op. 129, and Duo WoO 55, piano score and separate violin part", "series": "IX/4&12", "orderNo": "0109-1290", "price": "59.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "\u201cVolker\u201d, cyclic tone poem for violin and piano, op. 203, piano score and solo violin part", "series": "IX/6", "orderNo": "0109-2030", "price": "60.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 2, a major, op. 90, score and parts in folder", "series": "X/2", "orderNo": "0110-0900", "price": "77.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "String quartet No. 2, a major, op. 90, score", "series": "X/2", "orderNo": "0110-0900a", "price": "58.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 2, a major, op. 90, set of parts in folder", "series": "X/2", "orderNo": "0110-0900b", "price": "36.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 4, a minor, op. 137, score and parts in folder", "series": "X/4", "orderNo": "0110-1370", "price": "77.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "String quartet No. 4, a minor, op. 137, score", "series": "X/4", "orderNo": "0110-1370a", "price": "58.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "String quartet No. 4, a minor, op. 137, parts in folder", "series": "X/4", "orderNo": "0110-1370b", "price": "36.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "String quartet No. 5, g major, op. 138, score and parts in folder", "series": "X/5", "orderNo": "0110-1380", "price": "77.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 5, g major, op. 138, score", "series": "X/5", "orderNo": "0110-1380a", "price": "58.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 5, g major, op. 138, parts in folder", "series": "X/5", "orderNo": "0110-1380b", "price": "36.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, score and parts in folder", "series": "X/6", "orderNo": "0110-1921", "price": "77.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, score", "series": "X/6", "orderNo": "0110-1921a", "price": "58.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, parts in folder", "series": "X/6", "orderNo": "0110-1921b", "price": "36.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, pocket study score", "series": "X/6", "orderNo": "0110-1921c", "price": "14.90", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, score and parts in folder", "series": "X/7", "orderNo": "0110-1922", "price": "77.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, score", "series": "X/7", "orderNo": "0110-1922a", "price": "58.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, parts in folder", "series": "X/7", "orderNo": "0110-1922b", "price": "36.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, pocket score", "series": "X/7", "orderNo": "0110-1922c", "price": "14.90", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 8, \u201cSuite in Kanonform\u201d, c major, op. 192/3, score and parts in folder", "series": "X/8", "orderNo": "0110-1923", "price": "77.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 8, \u201cSuite in Kanonform\u201d, c major, op. 192/3, score", "series": "X/8", "orderNo": "0110-1923a", "price": "58.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String quartet No. 8, \u201cSuite in Kanonform\u201d, c major, op. 192/3, parts in folder", "series": "X/8", "orderNo": "0110-1923b", "price": "36.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Trio for violin, cello, and piano No. 1, c minor, op. 102, score and parts", "series": "XII/1", "orderNo": "0112-1020", "price": "36.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "String octet, c major, op. 176, score and parts in folder", "series": "XIII/2", "orderNo": "0113-1760", "price": "89.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String octet, c major, op. 176, score", "series": "XIII/2", "orderNo": "0113-1761", "price": "59.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String octet, c major, op. 176, parts in folder", "series": "XIII/2", "orderNo": "0113-1762", "price": "69.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "String sextet, g minor, op. 178, score and parts in folder", "series": "XIII/1", "orderNo": "0113-1780", "price": "79.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String sextet, g minor, op. 178, score", "series": "XIII/1", "orderNo": "0113-1781", "price": "59.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "String sextet, g minor, op. 178, parts in folder", "series": "XIII/1", "orderNo": "0113-1782", "price": "59.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Psalm 130, \u201cDe Profundis\u201d, op. 141, orchestral score", "series": "XIV/2a", "orderNo": "0114-1410", "price": "110.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Psalm 130, \u201cDe Profundis\u201d, op. 141, piano score", "series": "XIV/2b", "orderNo": "0114-1411", "price": "77.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Two pieces for solo, choir and orchestra, op. 186, orchestral score", "series": "XIV/6a", "orderNo": "0114-1860", "price": "64.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "\u201cTe Deum\u201d for mixed choir and orchestra, WoO 16, orchestral score, first edition", "series": "XIV/5a", "orderNo": "0114-W160", "price": "59.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "\u201cTe Deum\u201d for mixed choir and orchestra, WoO 16, vocal score, first edition", "series": "XIV/5b", "orderNo": "0114-W161", "price": "22.00", "binding": "sc", "inStock": true, "isNew": true },
+        { "title": "\u201cDie Sterne\u201d, choral cantata, WoO 53, orchestral score, first edition", "series": "XIV/3a", "orderNo": "0114-W530", "price": "79.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "\u201cDie Sterne\u201d, choral cantata, WoO 53, piano score, first edition", "series": "XIV/3b", "orderNo": "0114-W531", "price": "59.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Complete spiritual works for mixed choir a capella, score", "series": "XV/1-4", "orderNo": "0115-1414", "price": "49.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Motets for choir a capella, \u201cFour Marian Antiphones\u201d, for mixed choir, score", "series": "XV/1", "orderNo": "0115-3070", "price": "14.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Motet for eight part choir a capella, \u201cPater Noster\u201d, score", "series": "XV/2", "orderNo": "0115-3100", "price": "12.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Motet for eight part choir a capella, \u201cAve Maria\u201d, score", "series": "XV/3", "orderNo": "0115-3110", "price": "12.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "\u201cKyrie and Gloria\u201d, two ordinary movements for six part choir a capella, score", "series": "XV/4", "orderNo": "0115-W310", "price": "32.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Violin concerto No. 1, b minor, op. 161, orchestral score, first edition of the original version", "series": "XVI/7a", "orderNo": "0116-1610", "price": "79.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Violin concerto No. 1, b minor, op. 161, piano score", "series": "XVI/7b", "orderNo": "0116-1611", "price": "40.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Suite for violin and orchestra, g minor, op. 180, orchestral score", "series": "XVI/3a", "orderNo": "0116-1800", "price": "78.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Suite for violin and orchestra, g minor, op. 180, piano score with separate solo violin part", "series": "XVI/3b", "orderNo": "0116-1801", "price": "35.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Violin concerto No. 2, a minor, op. 206, orchestral score", "series": "XVI/2a", "orderNo": "0116-2060", "price": "79.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Violin concerto No. 2, a minor, op. 206, piano score", "series": "XVI/2b", "orderNo": "0116-2061", "price": "40.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Cello concerto No. 2, g major, WoO 44, orchestral score", "series": "XVI/1a", "orderNo": "0116-3130", "price": "79.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Cello concerto No. 2, g major, WoO 44, piano score", "series": "XVI/1b", "orderNo": "0116-3131", "price": "44.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Overture to the lyrical opera \u201cBenedetto Marcello\u201d, orchestral score", "series": "XVII/2", "orderNo": "0117-3190", "price": "44.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "\u201cElegy\u201d for large orchestra, WoO 48, orchestral score", "series": "XVII/1", "orderNo": "0117-3200", "price": "39.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "\u201cThe tempest\u201d (Der Sturm), prelude to Shakespeare\u2019s drama, WoO 49, orchestral score, first edition", "series": "XVII/11", "orderNo": "0117-W490", "price": "65.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "\u201cRomeo and Juliet\u201d (Romeo und Julia), prelude to Shakespeare\u2019s drama, WoO 51, orchestral score", "series": "XVII/13", "orderNo": "0117-W510", "price": "59.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "\u201cOthello\u201d, prelude to Shakespeare\u2019s drama, WoO 52, orchestral score, first edition", "series": "XVII/14", "orderNo": "0117-W520", "price": "64.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Overture to the comic opera \u201cDie Eifers\u00fcchtigen\u201d, WoO 54, orchestral score, first edition", "series": "XVII/15", "orderNo": "0117-W540", "price": "49.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Musical drama \u201cSamson\u201d, WoO 47, piano score, special Edition-Nordstern-25-years jubilee edition", "series": "XVIII/1c", "orderNo": "0118-W203", "price": "269.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Musical drama \u201cSamson\u201d, WoO 47, piano score, limited edition for the world premiere in Weimar", "series": "XVIII/1c", "orderNo": "0118-W203b", "price": "59.00", "binding": "sc", "inStock": true, "isNew": false },
+        { "title": "Opera \u201cBenedetto Marcello\u201d, WoO 47, orchestral score", "series": "XVIII/2a", "orderNo": "0118-W460", "price": "290.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Opera \u201cBenedetto Marcello\u201d, WoO 47, piano score", "series": "XVIII/2b", "orderNo": "0118-0471", "price": "100.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Opera \u201cDame Kobold\u201d, op. 154, orchestral score, first edition", "series": "XVIII/3a", "orderNo": "0118-1541", "price": "499.00", "binding": "hc", "inStock": "soon", "isNew": true },
+        { "title": "Opera \u201cDame Kobold\u201d, op. 154, piano score", "series": "XVIII/3b", "orderNo": "0118-1543", "price": "199.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Opera \u201cDie Eifers\u00fcchtigen (The jealous ones)\u201d, WoO 54, orchestral score, first edition", "series": "XVIII/6a", "orderNo": "0118-W540", "price": "499.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "Opera \u201cDie Eifers\u00fcchtigen (The jealous ones)\u201d, WoO 54, piano score, first edition", "series": "XVIII/6b", "orderNo": "0118-W541", "price": "199.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "Chaconne for solo violin by J.S. Bach from BWV 1004, transcribed for full orchestra by J. Raff, orchestral score", "series": "XIX/1", "orderNo": "0119-3340", "price": "49.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "\u201cDer gefesselte Prometheus\u201d, overture by Franz Liszt, orchestrated by Joachim Raff, orchestral score, first edition", "series": "XIX/2", "orderNo": "0119-3450", "price": "69.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "\u201cDer gefesselte Prometheus\u201d, overture by Franz Liszt, orchestrated by Joachim Raff, pocket score", "series": "XIX/2", "orderNo": "0119-3451", "price": "15.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "\u201cThe music of Joachim Raff\u201d \u2014 an illustrated catalogue by Mark Thomas (Raff Werkverzeichnis), book, first edition", "series": "XX/1", "orderNo": "0120-RWV0", "price": "239.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "Symphony No. 2, c major, op. 140, orchestral score", "series": "XXII/3", "orderNo": "0122-1400", "price": "110.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Symphony No. 2, c major, op. 140, pocket score", "series": "XXII/3", "orderNo": "0122-1403", "price": "30.00", "binding": "sc", "inStock": false, "isNew": false },
+        { "title": "Symphony No. 3, \u201cIn the forest / Waldsymphonie\u201d, f major, op. 153, orchestral score", "series": "XXII/4", "orderNo": "0122-1530", "price": "189.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "Symphony No. 3, \u201cIn the forest / Waldsymphonie\u201d, f major, op. 153, pocket score", "series": "XXII/4", "orderNo": "0122-1532", "price": "49.00", "binding": "sc", "inStock": true, "isNew": true },
+        { "title": "Complete orchestral songs, orchestral score", "series": "XXIV/1a", "orderNo": "0124-0001", "price": "129.00", "binding": "hc", "inStock": true, "isNew": true },
+        { "title": "Complete orchestral songs, piano score", "series": "XXIV/1b", "orderNo": "0124-0002", "price": "46.00", "binding": "hc", "inStock": true, "isNew": true }
+      ]
+    },
+    {
+      "name": "Felix Draeseke",
+      "id": "draeseke",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Felix_Draeseke",
+      "entries": [
+        { "title": "Symphony No. 3, c minor, op. 55, \u201cSymphonia Tragica\u201d, orchestral score, large format, hard cover", "series": "\u2014", "orderNo": "0317-0400", "price": "90.00", "binding": "hc", "inStock": false, "isNew": false },
+        { "title": "Symphony No. 4, e minor, WoO 38, \u201cSymphonia Comica\u201d, orchestral score", "series": "\u2014", "orderNo": "0317-SCO0", "price": "99.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Overture to the opera \u201cBertran de Born\u201d, orchestral score, first edition", "series": "\u2014", "orderNo": "0317-BDB0", "price": "39.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Symphonic Andante for cello and orchestra, WoO 11, first edition, orchestral score, hardcover", "series": "\u2014", "orderNo": "0317-0200", "price": "59.00", "binding": "hc", "inStock": true, "isNew": false },
+        { "title": "Symphonic Andante for cello and orchestra, WoO 11, first edition, piano score (including version for horn and orchestra)", "series": "\u2014", "orderNo": "0317-0201", "price": "39.00", "binding": "sc", "inStock": true, "isNew": false }
+      ]
+    },
+    {
+      "name": "Fromental Hal\u00e9vy",
+      "id": "halevy",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Fromental_Hal%C3%A9vy",
+      "onRequestNote": "Score, vocal score and parts available on request",
+      "entries": [
+        { "title": "La Reine de Chypre \u2014 Op\u00e9ra en cinq actes (1841). Score, vocal score and parts available on request.", "onRequest": true },
+        { "title": "Two overtures by Hal\u00e9vy arranged for string quartet by Richard Wagner (1841/42): La Reine de Chypre and Le Guitarrero. Available on request.", "onRequest": true }
+      ]
+    },
+    {
+      "name": "Franz Lachner",
+      "id": "lachner",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Franz_Lachner",
+      "entries": [
+        { "title": "Catarina Cornaro \u2014 Oper in vier Akten (1841). Score, vocal score and parts available on request.", "onRequest": true }
+      ]
+    },
+    {
+      "name": "Peter Josef von Lindpaintner",
+      "id": "lindpaintner",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Peter_Josef_von_Lindpaintner",
+      "entries": [
+        { "title": "Die sizilianische Vesper / Il vespro siciliano \u2014 Gro\u00dfe Oper mit Tanz in vier Akten (1844). Score, vocal score and parts available on request.", "onRequest": true }
+      ]
+    },
+    {
+      "name": "Albert Lortzing",
+      "id": "lortzing",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Albert_Lortzing",
+      "entries": [
+        { "title": "Zum Gro\u00dfadmiral \u2014 Komische Oper in drei Akten (1847). Score, vocal score and parts available on request.", "onRequest": true }
+      ]
+    },
+    {
+      "name": "Giacomo Meyerbeer",
+      "id": "meyerbeer",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Giacomo_Meyerbeer",
+      "entries": [
+        { "title": "Alimelek \u2014 Komische Oper in zwei Akten (1813/1814). Score, vocal score and parts available on request.", "onRequest": true }
+      ]
+    },
+    {
+      "name": "Giovanni Pacini",
+      "id": "pacini",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Giovanni_Pacini",
+      "entries": [
+        { "title": "Stella di Napoli \u2014 Dramma lirico in tre parti (1845). Score and parts of the overture available on request. Score, vocal score and parts of the complete opera in preparation.", "onRequest": true }
+      ]
+    }
+  ]
+}

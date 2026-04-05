@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edition Nordstern — upcoming projects and future publications.">
+  <title>Edition Nordstern — Projects</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10798239983"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-10798239983');
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <a href="index.html"><img src="images/logo.gif" alt="Edition Nordstern" class="logo"></a>
+      <div class="site-title">
+        <a href="index.html">Edition Nordstern</a>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="catalog.html" data-i18n="nav.catalog">Catalog</a></li>
+        <li><a href="composers.html" data-i18n="nav.composers">Composers</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="links.html" data-i18n="nav.links">Links</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Projects</h1>
+    <div class="gold-rule"></div>
+  </div>
+</section>
+
+<main class="main-content">
+  <div class="page-body">
+
+    <div class="content-section">
+      <h2>Our plans for 2024 and beyond</h2>
+
+      <ul>
+        <li>Heinrich Hofmann: "Das Märchen von der schönen Melusine", cantata, in piano score and full score.</li>
+        <li>Heinrich Hofmann: Cello concerto op. 31, piano score, full score, and parts</li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; Edition Nordstern, Stuttgart &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
+</footer>
+
+<script src="lang.js"></script>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>

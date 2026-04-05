@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edition Nordstern catalog of publications — works by Raff, Draeseke, Halévy, Lachner, Lindpaintner, Lortzing, and Pacini.">
+  <title>Edition Nordstern — Catalog</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10798239983"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-10798239983');
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <a href="index.html"><img src="images/logo.gif" alt="Edition Nordstern" class="logo"></a>
+      <div class="site-title">
+        <a href="index.html">Edition Nordstern</a>
+      </div>
+    </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="news.html" data-i18n="nav.news">News</a></li>
+        <li><a href="catalog.html" class="active" data-i18n="nav.catalog">Catalog</a></li>
+        <li><a href="composers.html" data-i18n="nav.composers">Composers</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="links.html" data-i18n="nav.links">Links</a></li>
+      </ul>
+      <a href="contact.html" class="header-social" aria-label="Contact Edition Nordstern"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></a>
+      <a href="https://www.facebook.com/editionnordstern" class="header-social" target="_blank" rel="noopener" aria-label="Edition Nordstern on Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+<section class="catalog-header">
+  <img src="images/DSCF0801.jpg" alt="" class="catalog-header-img">
+</section>
+
+<!-- Sticky search & filter bar -->
+<div class="catalog-controls">
+  <div class="catalog-controls-inner">
+    <div class="search-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="catalog-search" placeholder="Search titles, order numbers…" data-i18n-placeholder="catalog.search" aria-label="Search catalog">
+    </div>
+    <div class="filter-tabs" id="filter-tabs" role="tablist">
+      <button class="filter-tab active" data-composer="all" role="tab" aria-selected="true" data-i18n="catalog.all-composers">All composers</button>
+    </div>
+  </div>
+</div>
+
+<main class="main-content">
+  <div class="catalog-inner">
+
+    <!-- Order & shop info -->
+    <div class="catalog-info" style="margin-bottom:2rem;">
+      <p data-i18n-html="catalog.order-p">All orders national and international: please write e-mail to Edition Nordstern (<a href="mailto:raff@edno.de">raff@edno.de</a>)</p>
+      <p data-i18n-html="catalog.shop-p">For PDF downloads please visit our web shop: <a href="https://edno-shop.myshopify.com" target="_blank" rel="noopener">edno-shop.myshopify.com</a></p>
+      <p style="font-size:0.85rem;color:var(--color-text-muted);" data-i18n="catalog.payment">Payment via PayPal accepted.</p>
+    </div>
+
+    <!-- Catalog tables inserted by JS -->
+    <div id="catalog-container">
+      <p class="loading-msg">Loading catalog&hellip;</p>
+    </div>
+
+    <!-- No results message (hidden by default) -->
+    <div id="no-results" class="no-results" style="display:none;">
+      <span data-i18n="catalog.noresults">No publications matched your search. Try different keywords.</span>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; Edition Nordstern, Stuttgart &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
+</footer>
+
+<script>
+  // ============================================================
+  // Navigation toggle
+  // ============================================================
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  // ============================================================
+  // Inline fallback data (used if catalog.json is unavailable)
+  // ============================================================
+  const FALLBACK_DATA = {
+    composers: [
+      {
+        name: "Joachim Raff", id: "raff",
+        wikipediaUrl: "https://de.wikipedia.org/wiki/Joachim_Raff",
+        entries: [
+          { title: "Complete piano sonatas: e flat minor, op. 14 (versions 1844 and 1882), Fantasy sonata for piano, d minor, op. 168", series: "I/1-3", orderNo: "0101-ALL0", price: "49.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Piano sonata, e flat minor, op. 14, first version 1844", series: "I/1", orderNo: "0101-0141", price: "18.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Piano sonata, e flat minor, op. 14, second version 1882", series: "I/2", orderNo: "0101-0142", price: "22.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Fantasy sonata for piano, d minor, op. 168", series: "I/3", orderNo: "0101-1680", price: "20.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Piano suites Nos 1-3, op. 69, 71, 72", series: "II/1-3", orderNo: "0102-1313", price: "49.00", binding: "hc", inStock: true, isNew: true },
+          { title: "Piano suite No. 1, a minor, op. 69", series: "II/1", orderNo: "0102-0690", price: "18.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Piano suite No. 2, c major, op. 71", series: "II/2", orderNo: "0102-0710", price: "18.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Piano suite No. 3, e minor, op. 72", series: "II/3", orderNo: "0102-0720", price: "20.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Two pieces for piano: \u201cCavatina\u201d and \u201cLa Fileuse\u201d, op. 157", series: "III/1", orderNo: "0103-1570", price: "13.00", binding: "sc", inStock: false, isNew: false },
+          { title: "From the Advent Season / Aus der Adventzeit, eight pieces for piano, op. 216", series: "III/7", orderNo: "0103-2160", price: "24.00", binding: "sc", inStock: true, isNew: true },
+          { title: "Scherzo for piano op. 3 (original and revised versions)", series: "III/8", orderNo: "0103-0030", price: "24.00", binding: "sc", inStock: true, isNew: true },
+          { title: "Six suites for cello solo by J.S. Bach transcribed for piano by Raff", series: "V/1", orderNo: "0105-2170", price: "59.00", binding: "hc", inStock: "soon", isNew: false },
+          { title: "Cello suite No. 1 by J.S. Bach transcribed for piano, g major", series: "V/1a", orderNo: "0105-2171", price: "16.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Cello suite No. 2 by J.S. Bach transcribed for piano, d minor", series: "V/1b", orderNo: "0105-2172", price: "16.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Cello suite No. 3 by J.S. Bach transcribed for piano, c major", series: "V/1c", orderNo: "0105-2173", price: "16.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Cello suite No. 4 by J.S. Bach transcribed for piano, e flat major", series: "V/1d", orderNo: "0105-2174", price: "16.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Cello suite No. 5 by J.S. Bach transcribed for piano, c minor", series: "V/1e", orderNo: "0105-2175", price: "16.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Cello suite No. 6 by J.S. Bach transcribed for piano, d major", series: "V/1f", orderNo: "0105-2176", price: "16.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Violin sonata No. 4, op. 129, and Duo WoO 55, piano score and separate violin part", series: "IX/4&12", orderNo: "0109-1290", price: "59.00", binding: "hc", inStock: true, isNew: true },
+          { title: "\u201cVolker\u201d, cyclic tone poem for violin and piano, op. 203, piano score and solo violin part", series: "IX/6", orderNo: "0109-2030", price: "60.00", binding: "sc", inStock: true, isNew: false },
+          { title: "String quartet No. 2, a major, op. 90, score and parts in folder", series: "X/2", orderNo: "0110-0900", price: "77.00", binding: "hc", inStock: true, isNew: true },
+          { title: "String quartet No. 2, a major, op. 90, score", series: "X/2", orderNo: "0110-0900a", price: "58.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String quartet No. 2, a major, op. 90, set of parts in folder", series: "X/2", orderNo: "0110-0900b", price: "36.00", binding: "sc", inStock: true, isNew: false },
+          { title: "String quartet No. 4, a minor, op. 137, score and parts in folder", series: "X/4", orderNo: "0110-1370", price: "77.00", binding: "hc", inStock: false, isNew: false },
+          { title: "String quartet No. 4, a minor, op. 137, score", series: "X/4", orderNo: "0110-1370a", price: "58.00", binding: "hc", inStock: false, isNew: false },
+          { title: "String quartet No. 4, a minor, op. 137, parts in folder", series: "X/4", orderNo: "0110-1370b", price: "36.00", binding: "sc", inStock: false, isNew: false },
+          { title: "String quartet No. 5, g major, op. 138, score and parts in folder", series: "X/5", orderNo: "0110-1380", price: "77.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String quartet No. 5, g major, op. 138, score", series: "X/5", orderNo: "0110-1380a", price: "58.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String quartet No. 5, g major, op. 138, parts in folder", series: "X/5", orderNo: "0110-1380b", price: "36.00", binding: "sc", inStock: true, isNew: false },
+          { title: "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, score and parts in folder", series: "X/6", orderNo: "0110-1921", price: "77.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, score", series: "X/6", orderNo: "0110-1921a", price: "58.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, parts in folder", series: "X/6", orderNo: "0110-1921b", price: "36.00", binding: "sc", inStock: true, isNew: false },
+          { title: "String quartet No. 6, \u201cSuite in \u00e4lterer Form\u201d, c minor, op. 192/1, pocket study score", series: "X/6", orderNo: "0110-1921c", price: "14.90", binding: "sc", inStock: true, isNew: false },
+          { title: "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, score and parts in folder", series: "X/7", orderNo: "0110-1922", price: "77.00", binding: "hc", inStock: false, isNew: false },
+          { title: "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, score", series: "X/7", orderNo: "0110-1922a", price: "58.00", binding: "hc", inStock: false, isNew: false },
+          { title: "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, parts in folder", series: "X/7", orderNo: "0110-1922b", price: "36.00", binding: "sc", inStock: true, isNew: false },
+          { title: "String quartet No. 7, \u201cDie sch\u00f6ne M\u00fcllerin\u201d, d major, op. 192/2, pocket score", series: "X/7", orderNo: "0110-1922c", price: "14.90", binding: "sc", inStock: true, isNew: false },
+          { title: "String quartet No. 8, \u201cSuite in Kanonform\u201d, c major, op. 192/3, score and parts in folder", series: "X/8", orderNo: "0110-1923", price: "77.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String quartet No. 8, \u201cSuite in Kanonform\u201d, c major, op. 192/3, score", series: "X/8", orderNo: "0110-1923a", price: "58.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String quartet No. 8, \u201cSuite in Kanonform\u201d, c major, op. 192/3, parts in folder", series: "X/8", orderNo: "0110-1923b", price: "36.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Trio for violin, cello, and piano No. 1, c minor, op. 102, score and parts", series: "XII/1", orderNo: "0112-1020", price: "36.00", binding: "sc", inStock: false, isNew: false },
+          { title: "String octet, c major, op. 176, score and parts in folder", series: "XIII/2", orderNo: "0113-1760", price: "89.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String octet, c major, op. 176, score", series: "XIII/2", orderNo: "0113-1761", price: "59.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String octet, c major, op. 176, parts in folder", series: "XIII/2", orderNo: "0113-1762", price: "69.00", binding: "sc", inStock: true, isNew: false },
+          { title: "String sextet, g minor, op. 178, score and parts in folder", series: "XIII/1", orderNo: "0113-1780", price: "79.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String sextet, g minor, op. 178, score", series: "XIII/1", orderNo: "0113-1781", price: "59.00", binding: "hc", inStock: true, isNew: false },
+          { title: "String sextet, g minor, op. 178, parts in folder", series: "XIII/1", orderNo: "0113-1782", price: "59.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Psalm 130, \u201cDe Profundis\u201d, op. 141, orchestral score", series: "XIV/2a", orderNo: "0114-1410", price: "110.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Psalm 130, \u201cDe Profundis\u201d, op. 141, piano score", series: "XIV/2b", orderNo: "0114-1411", price: "77.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Two pieces for solo, choir and orchestra, op. 186, orchestral score", series: "XIV/6a", orderNo: "0114-1860", price: "64.00", binding: "hc", inStock: true, isNew: false },
+          { title: "\u201cTe Deum\u201d for mixed choir and orchestra, WoO 16, orchestral score, first edition", series: "XIV/5a", orderNo: "0114-W160", price: "59.00", binding: "hc", inStock: true, isNew: false },
+          { title: "\u201cTe Deum\u201d for mixed choir and orchestra, WoO 16, vocal score, first edition", series: "XIV/5b", orderNo: "0114-W161", price: "22.00", binding: "sc", inStock: true, isNew: true },
+          { title: "\u201cDie Sterne\u201d, choral cantata, WoO 53, orchestral score, first edition", series: "XIV/3a", orderNo: "0114-W530", price: "79.00", binding: "hc", inStock: true, isNew: false },
+          { title: "\u201cDie Sterne\u201d, choral cantata, WoO 53, piano score, first edition", series: "XIV/3b", orderNo: "0114-W531", price: "59.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Complete spiritual works for mixed choir a capella, score", series: "XV/1-4", orderNo: "0115-1414", price: "49.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Motets for choir a capella, \u201cFour Marian Antiphones\u201d, for mixed choir, score", series: "XV/1", orderNo: "0115-3070", price: "14.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Motet for eight part choir a capella, \u201cPater Noster\u201d, score", series: "XV/2", orderNo: "0115-3100", price: "12.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Motet for eight part choir a capella, \u201cAve Maria\u201d, score", series: "XV/3", orderNo: "0115-3110", price: "12.00", binding: "sc", inStock: false, isNew: false },
+          { title: "\u201cKyrie and Gloria\u201d, two ordinary movements for six part choir a capella, score", series: "XV/4", orderNo: "0115-W310", price: "32.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Violin concerto No. 1, b minor, op. 161, orchestral score, first edition of the original version", series: "XVI/7a", orderNo: "0116-1610", price: "79.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Violin concerto No. 1, b minor, op. 161, piano score", series: "XVI/7b", orderNo: "0116-1611", price: "40.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Suite for violin and orchestra, g minor, op. 180, orchestral score", series: "XVI/3a", orderNo: "0116-1800", price: "78.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Suite for violin and orchestra, g minor, op. 180, piano score with separate solo violin part", series: "XVI/3b", orderNo: "0116-1801", price: "35.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Violin concerto No. 2, a minor, op. 206, orchestral score", series: "XVI/2a", orderNo: "0116-2060", price: "79.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Violin concerto No. 2, a minor, op. 206, piano score", series: "XVI/2b", orderNo: "0116-2061", price: "40.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Cello concerto No. 2, g major, WoO 44, orchestral score", series: "XVI/1a", orderNo: "0116-3130", price: "79.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Cello concerto No. 2, g major, WoO 44, piano score", series: "XVI/1b", orderNo: "0116-3131", price: "44.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Overture to the lyrical opera \u201cBenedetto Marcello\u201d, orchestral score", series: "XVII/2", orderNo: "0117-3190", price: "44.00", binding: "hc", inStock: true, isNew: false },
+          { title: "\u201cElegy\u201d for large orchestra, WoO 48, orchestral score", series: "XVII/1", orderNo: "0117-3200", price: "39.00", binding: "hc", inStock: false, isNew: false },
+          { title: "\u201cThe tempest\u201d (Der Sturm), prelude to Shakespeare\u2019s drama, WoO 49, orchestral score, first edition", series: "XVII/11", orderNo: "0117-W490", price: "65.00", binding: "hc", inStock: false, isNew: false },
+          { title: "\u201cRomeo and Juliet\u201d (Romeo und Julia), prelude to Shakespeare\u2019s drama, WoO 51, orchestral score", series: "XVII/13", orderNo: "0117-W510", price: "59.00", binding: "hc", inStock: true, isNew: false },
+          { title: "\u201cOthello\u201d, prelude to Shakespeare\u2019s drama, WoO 52, orchestral score, first edition", series: "XVII/14", orderNo: "0117-W520", price: "64.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Overture to the comic opera \u201cDie Eifers\u00fcchtigen\u201d, WoO 54, orchestral score, first edition", series: "XVII/15", orderNo: "0117-W540", price: "49.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Musical drama \u201cSamson\u201d, WoO 47, piano score, special Edition-Nordstern-25-years jubilee edition", series: "XVIII/1c", orderNo: "0118-W203", price: "269.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Musical drama \u201cSamson\u201d, WoO 47, piano score, limited edition for the world premiere in Weimar", series: "XVIII/1c", orderNo: "0118-W203b", price: "59.00", binding: "sc", inStock: true, isNew: false },
+          { title: "Opera \u201cBenedetto Marcello\u201d, WoO 47, orchestral score", series: "XVIII/2a", orderNo: "0118-W460", price: "290.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Opera \u201cBenedetto Marcello\u201d, WoO 47, piano score", series: "XVIII/2b", orderNo: "0118-0471", price: "100.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Opera \u201cDame Kobold\u201d, op. 154, orchestral score, first edition", series: "XVIII/3a", orderNo: "0118-1541", price: "499.00", binding: "hc", inStock: "soon", isNew: true },
+          { title: "Opera \u201cDame Kobold\u201d, op. 154, piano score", series: "XVIII/3b", orderNo: "0118-1543", price: "199.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Opera \u201cDie Eifers\u00fcchtigen (The jealous ones)\u201d, WoO 54, orchestral score, first edition", series: "XVIII/6a", orderNo: "0118-W540", price: "499.00", binding: "hc", inStock: true, isNew: true },
+          { title: "Opera \u201cDie Eifers\u00fcchtigen (The jealous ones)\u201d, WoO 54, piano score, first edition", series: "XVIII/6b", orderNo: "0118-W541", price: "199.00", binding: "hc", inStock: true, isNew: true },
+          { title: "Chaconne for solo violin by J.S. Bach from BWV 1004, transcribed for full orchestra by J. Raff, orchestral score", series: "XIX/1", orderNo: "0119-3340", price: "49.00", binding: "hc", inStock: true, isNew: false },
+          { title: "\u201cDer gefesselte Prometheus\u201d, overture by Franz Liszt, orchestrated by Joachim Raff, orchestral score, first edition", series: "XIX/2", orderNo: "0119-3450", price: "69.00", binding: "hc", inStock: false, isNew: false },
+          { title: "\u201cDer gefesselte Prometheus\u201d, overture by Franz Liszt, orchestrated by Joachim Raff, pocket score", series: "XIX/2", orderNo: "0119-3451", price: "15.00", binding: "sc", inStock: false, isNew: false },
+          { title: "\u201cThe music of Joachim Raff\u201d \u2014 an illustrated catalogue by Mark Thomas (Raff Werkverzeichnis), book, first edition", series: "XX/1", orderNo: "0120-RWV0", price: "239.00", binding: "hc", inStock: true, isNew: true },
+          { title: "Symphony No. 2, c major, op. 140, orchestral score", series: "XXII/3", orderNo: "0122-1400", price: "110.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Symphony No. 2, c major, op. 140, pocket score", series: "XXII/3", orderNo: "0122-1403", price: "30.00", binding: "sc", inStock: false, isNew: false },
+          { title: "Symphony No. 3, \u201cIn the forest / Waldsymphonie\u201d, f major, op. 153, orchestral score", series: "XXII/4", orderNo: "0122-1530", price: "189.00", binding: "hc", inStock: true, isNew: true },
+          { title: "Symphony No. 3, \u201cIn the forest / Waldsymphonie\u201d, f major, op. 153, pocket score", series: "XXII/4", orderNo: "0122-1532", price: "49.00", binding: "sc", inStock: true, isNew: true },
+          { title: "Complete orchestral songs, orchestral score", series: "XXIV/1a", orderNo: "0124-0001", price: "129.00", binding: "hc", inStock: true, isNew: true },
+          { title: "Complete orchestral songs, piano score", series: "XXIV/1b", orderNo: "0124-0002", price: "46.00", binding: "hc", inStock: true, isNew: true }
+        ]
+      },
+      {
+        name: "Felix Draeseke", id: "draeseke",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Felix_Draeseke",
+        entries: [
+          { title: "Symphony No. 3, c minor, op. 55, \u201cSymphonia Tragica\u201d, orchestral score, large format, hard cover", series: "\u2014", orderNo: "0317-0400", price: "90.00", binding: "hc", inStock: false, isNew: false },
+          { title: "Symphony No. 4, e minor, WoO 38, \u201cSymphonia Comica\u201d, orchestral score", series: "\u2014", orderNo: "0317-SCO0", price: "99.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Overture to the opera \u201cBertran de Born\u201d, orchestral score, first edition", series: "\u2014", orderNo: "0317-BDB0", price: "39.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Symphonic Andante for cello and orchestra, WoO 11, first edition, orchestral score, hardcover", series: "\u2014", orderNo: "0317-0200", price: "59.00", binding: "hc", inStock: true, isNew: false },
+          { title: "Symphonic Andante for cello and orchestra, WoO 11, first edition, piano score (including version for horn and orchestra)", series: "\u2014", orderNo: "0317-0201", price: "39.00", binding: "sc", inStock: true, isNew: false }
+        ]
+      },
+      {
+        name: "Fromental Hal\u00e9vy", id: "halevy",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Fromental_Hal%C3%A9vy",
+        entries: [
+          { title: "La Reine de Chypre \u2014 Op\u00e9ra en cinq actes (1841). Score, vocal score and parts available on request.", onRequest: true },
+          { title: "Two overtures by Hal\u00e9vy arranged for string quartet by Richard Wagner (1841/42): La Reine de Chypre and Le Guitarrero. Available on request.", onRequest: true }
+        ]
+      },
+      {
+        name: "Franz Lachner", id: "lachner",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Franz_Lachner",
+        entries: [
+          { title: "Catarina Cornaro \u2014 Oper in vier Akten (1841). Score, vocal score and parts available on request.", onRequest: true }
+        ]
+      },
+      {
+        name: "Peter Josef von Lindpaintner", id: "lindpaintner",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Peter_Josef_von_Lindpaintner",
+        entries: [
+          { title: "Die sizilianische Vesper / Il vespro siciliano \u2014 Gro\u00dfe Oper mit Tanz in vier Akten (1844). Score, vocal score and parts available on request.", onRequest: true }
+        ]
+      },
+      {
+        name: "Albert Lortzing", id: "lortzing",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Albert_Lortzing",
+        entries: [
+          { title: "Zum Gro\u00dfadmiral \u2014 Komische Oper in drei Akten (1847). Score, vocal score and parts available on request.", onRequest: true }
+        ]
+      },
+      {
+        name: "Giacomo Meyerbeer", id: "meyerbeer",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Giacomo_Meyerbeer",
+        entries: [
+          { title: "Alimelek \u2014 Komische Oper in zwei Akten (1813/1814). Score, vocal score and parts available on request.", onRequest: true }
+        ]
+      },
+      {
+        name: "Giovanni Pacini", id: "pacini",
+        wikipediaUrl: "https://en.wikipedia.org/wiki/Giovanni_Pacini",
+        entries: [
+          { title: "Stella di Napoli \u2014 Dramma lirico in tre parti (1845). Score and parts of the overture available on request. Score, vocal score and parts of the complete opera in preparation.", onRequest: true }
+        ]
+      }
+    ]
+  };
+
+  // ============================================================
+  // Catalog rendering functions
+  // ============================================================
+  function stockBadge(inStock) {
+    if (inStock === true || inStock === 'Y') return '<span class="stock-in">In stock</span>';
+    if (inStock === 'soon') return '<span class="stock-soon">Coming soon</span>';
+    return '<span class="stock-out">Out of stock</span>';
+  }
+
+  function buildTable(entries) {
+    if (!entries || entries.length === 0) return '<p style="padding:1rem;color:#999;">No entries available.</p>';
+
+    // Separate regular and on-request entries
+    const regular = entries.filter(e => !e.onRequest);
+    const onRequest = entries.filter(e => e.onRequest);
+
+    let html = '';
+
+    // On-request items (no order number / price)
+    if (onRequest.length > 0) {
+      html += onRequest.map(e => `
+        <div class="on-request-entry catalog-row" data-search="${e.title.toLowerCase()}">
+          <p>${e.title}</p>
+          <p><a href="contact.html" data-i18n="nav.contact">Contact us to order</a></p>
+        </div>`).join('');
+    }
+
+    // Regular items in a table
+    if (regular.length > 0) {
+      let rows = regular.map(e => `
+        <tr class="catalog-row" data-search="${(e.title + ' ' + (e.orderNo||'') + ' ' + (e.series||'')).toLowerCase()}">
+          <td>${e.title}${e.isNew ? ' <span class="badge-new">NEW</span>' : ''}</td>
+          <td>${e.series || '—'}</td>
+          <td>${e.orderNo || '—'}</td>
+          <td>€&nbsp;${e.price}</td>
+          <td>${e.binding === 'hc' ? 'Hard cover' : e.binding === 'sc' ? 'Soft cover' : (e.binding || '—')}</td>
+          <td>${stockBadge(e.inStock)}</td>
+        </tr>`).join('');
+      html += `
+        <div class="catalog-table-wrap">
+          <table class="catalog-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Series</th>
+                <th>Order No.</th>
+                <th>Price EUR</th>
+                <th>Binding</th>
+                <th>In Stock</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>`;
+    }
+
+    return html;
+  }
+
+  function renderCatalog(data) {
+    const container = document.getElementById('catalog-container');
+    const filterTabs = document.getElementById('filter-tabs');
+
+    // Build composer filter tabs
+    data.composers.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-tab';
+      btn.dataset.composer = c.id;
+      btn.textContent = c.name;
+      btn.setAttribute('role', 'tab');
+      filterTabs.appendChild(btn);
+    });
+
+    // Build HTML for each composer section
+    container.innerHTML = data.composers.map(c => `
+      <section class="catalog-composer-section" id="composer-${c.id}" data-composer-id="${c.id}">
+        <h2>${c.name}</h2>
+        ${buildTable(c.entries)}
+      </section>`).join('');
+
+    // Filter tab logic
+    filterTabs.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.querySelectorAll('.filter-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const selected = tab.dataset.composer;
+        container.querySelectorAll('.catalog-composer-section').forEach(sec => {
+          sec.style.display = (selected === 'all' || sec.dataset.composerId === selected) ? '' : 'none';
+        });
+        applySearch();
+      });
+    });
+
+    // Search logic
+    const searchInput = document.getElementById('catalog-search');
+    searchInput.addEventListener('input', applySearch);
+
+    function applySearch() {
+      const query = searchInput.value.toLowerCase().trim();
+      let totalVisible = 0;
+      container.querySelectorAll('.catalog-composer-section').forEach(sec => {
+        if (sec.style.display === 'none') return;
+        const rows = sec.querySelectorAll('.catalog-row');
+        let sectionVisible = 0;
+        rows.forEach(row => {
+          const match = !query || row.dataset.search.includes(query);
+          row.style.display = match ? '' : 'none';
+          if (match) sectionVisible++;
+        });
+        // Hide section heading if no rows visible
+        sec.style.opacity = sectionVisible === 0 ? '0.3' : '1';
+        totalVisible += sectionVisible;
+      });
+      document.getElementById('no-results').style.display = (query && totalVisible === 0) ? 'block' : 'none';
+    }
+  }
+
+  // ============================================================
+  // Load catalog data — tries Google Sheets first, falls back to catalog.json,
+  // then to inline FALLBACK_DATA.
+  // Replace SHEETS_URL with your Apps Script Web App deployment URL.
+  // ============================================================
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwVEev_sLw7wXNzUV6dlCsGO34Z2EDArJwoXRRo5XBoZPh2nV-K9XkH2K7c2Uyi6Tv0Ng/exec';
+
+  function loadFromJson() {
+    return fetch('catalog.json')
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); });
+  }
+
+  const primary = SHEETS_URL
+    ? fetch(SHEETS_URL).then(r => { if (!r.ok) throw new Error(); return r.json(); })
+    : Promise.reject();
+
+  primary
+    .then(data => renderCatalog(data))
+    .catch(() => loadFromJson()
+      .then(data => renderCatalog(data))
+      .catch(() => renderCatalog(FALLBACK_DATA)));
+
+</script>
+
+<script>
+  // Auto-update footer date from Google Sheets
+  (function() {
+    var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwVEev_sLw7wXNzUV6dlCsGO34Z2EDArJwoXRRo5XBoZPh2nV-K9XkH2K7c2Uyi6Tv0Ng/exec?type=meta';
+    fetch(SHEETS_URL).then(function(r){ return r.json(); }).then(function(d){
+      var el = document.getElementById('footer-date');
+      if (el && d.lastUpdated) {
+        var date = new Date(d.lastUpdated);
+        el.textContent = date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+      }
+    }).catch(function(){});
+  })();
+</script>
+</body>
+</html>
