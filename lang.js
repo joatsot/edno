@@ -192,23 +192,34 @@
     return nav.startsWith('de') ? 'de' : 'en';
   }
 
-  function injectSwitcher() {
-    var nav = document.querySelector('.main-nav');
-    if (!nav || nav.querySelector('.lang-switcher')) return;
+  function makeSwitcher(extraClass) {
     var sw = document.createElement('div');
-    sw.className = 'lang-switcher';
+    sw.className = 'lang-switcher' + (extraClass ? ' ' + extraClass : '');
     sw.setAttribute('aria-label', 'Language / Sprache');
     sw.innerHTML =
       '<button class="lang-btn" data-lang-btn="en" title="English">EN</button>' +
       '<span aria-hidden="true">|</span>' +
       '<button class="lang-btn" data-lang-btn="de" title="Deutsch">DE</button>';
-    nav.appendChild(sw);
     sw.addEventListener('click', function (e) {
       var btn = e.target;
       if (!btn.getAttribute('data-lang-btn') && btn.parentNode) btn = btn.parentNode;
       var l = btn.getAttribute('data-lang-btn');
       if (l) applyLang(l);
     });
+    return sw;
+  }
+
+  function injectSwitcher() {
+    var nav = document.querySelector('.main-nav');
+    if (!nav || nav.querySelector('.lang-switcher')) return;
+    nav.appendChild(makeSwitcher());
+
+    // Mobile: also inject into header before nav-toggle
+    var toggle = document.querySelector('.nav-toggle');
+    if (toggle && !document.querySelector('.lang-switcher-mobile')) {
+      var mSw = makeSwitcher('lang-switcher-mobile');
+      toggle.parentNode.insertBefore(mSw, toggle);
+    }
   }
 
   function init() {
