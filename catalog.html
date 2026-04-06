@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Edition Nordstern catalog of publications — works by Raff, Draeseke, Halévy, Lachner, Lindpaintner, Lortzing, and Pacini.">
   <title>Edition Nordstern — Catalog</title>
-  <link rel="stylesheet" href="style.css?v=4">
-
+  <link rel="stylesheet" href="style.css?v=8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 </head>
 <body>
 
@@ -36,6 +37,8 @@
 
 <section class="catalog-header">
   <img src="images/DSCF0801.jpg" alt="" class="catalog-header-img">
+  <h1 data-i18n="nav.catalog">Catalog</h1>
+  <div class="gold-rule"></div>
 </section>
 
 <!-- Sticky search & filter bar -->
@@ -59,6 +62,12 @@
       <p data-i18n-html="catalog.order-p">All orders national and international: please write e-mail to Edition Nordstern (<a href="mailto:raff@edno.de">raff@edno.de</a>)</p>
       <p data-i18n-html="catalog.shop-p">For PDF downloads please visit our web shop: <a href="https://edno-shop.myshopify.com" target="_blank" rel="noopener">edno-shop.myshopify.com</a></p>
       <p style="font-size:0.85rem;color:var(--color-text-muted);" data-i18n="catalog.payment">Payment via PayPal accepted.</p>
+      <div style="margin-top:1rem;">
+        <button id="pdf-download-btn" class="catalog-pdf-btn" onclick="downloadCatalogPDF()" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="catalog.pdf-btn">Download complete catalog (PDF)</span>
+        </button>
+      </div>
     </div>
 
     <!-- Catalog tables inserted by JS -->
@@ -78,7 +87,7 @@
   <p><p>&copy; Edition Nordstern, Stuttgart &middot; <span data-i18n="footer.updated">Last updated:</span>copy; Edition Nordstern, Stuttgart &middot; <a href="impressum.html">Impressum</a> &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
 </footer>
 
-<script src="lang.js?v=2"></script>
+<script src="lang.js?v=4"></script>
 
 <script>
   // ============================================================
@@ -312,7 +321,28 @@
     return html;
   }
 
+  var _catalogData = null;
+  var _logoBase64 = null;
+
+  // Pre-load logo as base64 PNG for PDF embedding (scaled to max 120px wide)
+  (function() {
+    var img = new Image();
+    img.onload = function() {
+      var maxW = 120;
+      var scale = img.width > maxW ? maxW / img.width : 1;
+      var canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      _logoBase64 = canvas.toDataURL('image/png');
+    };
+    img.src = 'images/logo.gif';
+  })();
+
   function renderCatalog(data) {
+    _catalogData = data;
+    var btn = document.getElementById('pdf-download-btn');
+    if (btn) btn.disabled = false;
     const container = document.getElementById('catalog-container');
     const filterTabs = document.getElementById('filter-tabs');
 
@@ -395,6 +425,118 @@
     .catch(() => loadFromJson()
       .then(data => renderCatalog(data))
       .catch(() => renderCatalog(FALLBACK_DATA)));
+
+  function downloadCatalogPDF() {
+    if (!_catalogData) return;
+
+    var lang = (window.EdNoLang && window.EdNoLang.current) ? window.EdNoLang.current() : 'en';
+    var isDE = lang === 'de';
+    var today = new Date().toLocaleDateString(isDE ? 'de-DE' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    var MINT = '#3d7a65';
+    var MINT_PALE = '#e8f2ee';
+    var STRIPE = '#f4f8f6';
+    var TEXT = '#1a2e22';
+    var MUTED = '#666';
+
+    var headerContent = _logoBase64
+      ? { columns: [
+            { image: _logoBase64, width: 44, margin: [0, 2, 12, 0] },
+            { stack: [
+                { text: 'Edition Nordstern', style: 'mainTitle', margin: [0, 0, 0, 2] },
+                { text: isDE ? 'Vollständiger Katalog' : 'Complete Catalog', style: 'subTitle', margin: [0, 0, 0, 2] },
+                { text: (isDE ? 'Stand: ' : 'As of: ') + today, style: 'dateLine' }
+              ]
+            }
+          ], margin: [0, 0, 0, 8] }
+      : [
+          { text: 'Edition Nordstern', style: 'mainTitle', margin: [0, 0, 0, 2] },
+          { text: isDE ? 'Vollständiger Katalog' : 'Complete Catalog', style: 'subTitle', margin: [0, 0, 0, 2] },
+          { text: (isDE ? 'Stand: ' : 'As of: ') + today, style: 'dateLine', margin: [0, 0, 0, 6] }
+        ];
+
+    var content = [
+      headerContent,
+      { canvas: [{ type: 'line', x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 0.8, lineColor: MINT }], margin: [0, 0, 0, 10] },
+      { text: isDE
+          ? 'Bestellungen: raff@edno.de  ·  PDF-Downloads: edno-shop.myshopify.com  ·  Zahlung per PayPal'
+          : 'Orders: raff@edno.de  ·  PDF downloads: edno-shop.myshopify.com  ·  Payment via PayPal',
+        style: 'contactLine', margin: [0, 0, 0, 18] }
+    ];
+
+    _catalogData.composers.forEach(function(composer) {
+      var regular = composer.entries.filter(function(e) { return !e.onRequest; });
+      var onRequest = composer.entries.filter(function(e) { return e.onRequest; });
+
+      content.push({ text: composer.name, style: 'composerHeading', margin: [0, 14, 0, 6] });
+
+      if (regular.length > 0) {
+        var hdr = isDE
+          ? ['Titel', 'Reihe', 'Best.-Nr.', 'EUR', 'Einband']
+          : ['Title', 'Series', 'Order No.', 'EUR', 'Binding'];
+
+        var rows = [hdr.map(function(h) { return { text: h, style: 'th' }; })];
+
+        regular.forEach(function(e, i) {
+          var binding = e.binding === 'hc'
+            ? (isDE ? 'Hardcover' : 'Hard cover')
+            : (isDE ? 'Softcover' : 'Soft cover');
+          rows.push([
+            { text: e.title, style: 'td', fillColor: i % 2 === 1 ? STRIPE : null },
+            { text: e.series || '—', style: 'td', fillColor: i % 2 === 1 ? STRIPE : null },
+            { text: e.orderNo || '—', style: 'td', fillColor: i % 2 === 1 ? STRIPE : null },
+            { text: e.price ? '€\u00a0' + e.price : '—', style: 'td', fillColor: i % 2 === 1 ? STRIPE : null },
+            { text: binding, style: 'td', fillColor: i % 2 === 1 ? STRIPE : null }
+          ]);
+        });
+
+        content.push({
+          table: { headerRows: 1, widths: ['*', 'auto', 'auto', 'auto', 'auto'], body: rows },
+          layout: {
+            fillColor: function(ri) { return ri === 0 ? MINT_PALE : null; },
+            hLineWidth: function(ri, node) { return (ri === 0 || ri === node.table.body.length) ? 0.5 : 0.3; },
+            vLineWidth: function() { return 0; },
+            hLineColor: function() { return '#c5ddd5'; },
+            paddingLeft: function() { return 5; },
+            paddingRight: function() { return 5; },
+            paddingTop: function() { return 3; },
+            paddingBottom: function() { return 3; }
+          },
+          margin: [0, 0, 0, 4]
+        });
+      }
+
+      if (onRequest.length > 0) {
+        onRequest.forEach(function(e) {
+          content.push({ text: '• ' + e.title, style: 'onRequest', margin: [6, 1, 0, 1] });
+        });
+      }
+    });
+
+    var docDef = {
+      pageSize: 'A4',
+      pageMargins: [40, 55, 40, 55],
+      footer: function(page, pages) {
+        return { text: 'Edition Nordstern  ·  raff@edno.de  ·  ' + page + ' / ' + pages, alignment: 'center', style: 'footerLine', margin: [0, 10, 0, 0] };
+      },
+      content: content,
+      styles: {
+        mainTitle:      { fontSize: 20, bold: true, color: TEXT },
+        subTitle:       { fontSize: 11, color: MINT },
+        dateLine:       { fontSize: 8, color: MUTED, italics: true },
+        contactLine:    { fontSize: 8, color: MUTED },
+        composerHeading:{ fontSize: 12, bold: true, color: TEXT },
+        th:             { fontSize: 7.5, bold: true, color: MINT },
+        td:             { fontSize: 7.5, color: '#333' },
+        tdNew:          { fontSize: 7.5, color: '#333', bold: true },
+        onRequest:      { fontSize: 7.5, color: MUTED, italics: true },
+        footerLine:     { fontSize: 7, color: '#aaa' }
+      }
+    };
+
+    var filename = isDE ? 'EditionNordstern_Katalog.pdf' : 'EditionNordstern_Catalog.pdf';
+    pdfMake.createPdf(docDef).download(filename);
+  }
 
 </script>
 

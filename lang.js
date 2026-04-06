@@ -35,6 +35,7 @@
       'catalog.order-p': 'All orders national and international: please write e-mail to Edition Nordstern (<a href="mailto:raff@edno.de">raff@edno.de</a>)',
       'catalog.shop-p': 'For PDF downloads please visit our web shop: <a href="https://edno-shop.myshopify.com" target="_blank" rel="noopener">edno-shop.myshopify.com</a>',
       'catalog.payment': 'Payment via PayPal accepted.',
+      'catalog.pdf-btn': 'Download complete catalog (PDF)',
       'catalog.loading': 'Loading catalog\u2026',
       'catalog.noresults': 'No publications matched your search. Try different keywords.',
       'composers.heading': 'Composers published by Edition Nordstern',
@@ -71,7 +72,7 @@
       'work.main-lang': 'The main language of the catalogue is English. Original citations are presented in German and English.',
       'news.loading': 'Loading news\u2026',
       'news.cat.news': 'News',
-      'news.cat.nextpub': 'Next Publications',
+      'news.cat.nextpublications': 'Next Publications',
     },
     de: {
       'nav.home': 'Startseite',
@@ -105,6 +106,7 @@
       'catalog.order-p': 'Alle nationalen und internationalen Bestellungen bitte per E-Mail an Edition Nordstern (<a href="mailto:raff@edno.de">raff@edno.de</a>)',
       'catalog.shop-p': 'PDF-Downloads sind in unserem Webshop erh\u00e4ltlich: <a href="https://edno-shop.myshopify.com" target="_blank" rel="noopener">edno-shop.myshopify.com</a>',
       'catalog.payment': 'Zahlung per PayPal m\u00f6glich.',
+      'catalog.pdf-btn': 'Vollst\u00e4ndigen Katalog herunterladen (PDF)',
       'catalog.loading': 'Katalog wird geladen\u2026',
       'catalog.noresults': 'Keine Publikationen gefunden. Bitte andere Suchbegriffe verwenden.',
       'composers.heading': 'Bei Edition Nordstern verlegte Komponisten',
@@ -141,7 +143,7 @@
       'work.main-lang': 'Die Hauptsprache des Katalogs ist Englisch. Originalzitate werden auf Deutsch und Englisch pr\u00e4sentiert.',
       'news.loading': 'Nachrichten werden geladen\u2026',
       'news.cat.news': 'Neuigkeiten',
-      'news.cat.nextpub': 'N\u00e4chste Ver\u00f6ffentlichungen',
+      'news.cat.nextpublications': 'N\u00e4chste Ver\u00f6ffentlichungen',
     }
   };
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact Edition Nordstern — music publisher in Stuttgart, Germany.">
   <title>Edition Nordstern — Contact</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=8">
 
 </head>
 <body>
@@ -34,28 +34,52 @@
   </div>
 </header>
 
-
 <main class="main-content">
-  <div class="page-body">
+  <div class="contact-page">
 
-    <div class="content-section">
-      <h2 data-i18n="contact.heading">Get in Touch</h2>
+    <h2 class="contact-page-heading" data-i18n="nav.contact">Contact</h2>
+    <div class="contact-rule"></div>
 
-      <img src="images/DSCF0813-Enhanced-NR.jpg" alt="Edition Nordstern Stuttgart" class="contact-photo">
+    <p class="contact-intro" data-i18n="contact.run">The company is run by Volker Tosta and is supported by a group of international collaborators.</p>
 
-      <p data-i18n="contact.run">The company is run by Volker Tosta and is supported by a group of international collaborators.</p>
+    <div class="contact-two-col">
+      <img src="images/DSCF0813-Enhanced-NR.jpg" alt="Edition Nordstern — Volker Tosta" class="contact-portrait-rect">
+      <div class="contact-details-grid">
 
-      <p data-i18n="contact.orders">You can place orders via phone, or e-mail. You will receive a confirmation via e-mail and a request for payment via Paypal.</p>
+      <div class="contact-detail-card">
+        <div class="contact-detail-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-body">
+          <strong>Edition Nordstern</strong>
+          <span>Spitzwegstr. 17, D-70192 Stuttgart, Germany</span>
+        </div>
+      </div>
 
-      <address class="address-block">
-        <strong>Edition Nordstern</strong>
-        Spitzwegstr. 17<br>
-        D-70192 Stuttgart<br>
-        Germany<br><br>
-        phone: +49 152 2957 1505<br>
-        e-mail: <a href="mailto:raff@edno.de">raff@edno.de</a>
-      </address>
+      <div class="contact-detail-card">
+        <div class="contact-detail-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12 19.79 19.79 0 0 1 1.22 3.19 2 2 0 0 1 3.22 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+        </div>
+        <div class="contact-detail-body">
+          <strong>Phone</strong>
+          <a href="tel:+4915229571505">+49 152 2957 1505</a>
+        </div>
+      </div>
+
+      <div class="contact-detail-card">
+        <div class="contact-detail-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </div>
+        <div class="contact-detail-body">
+          <strong>E-Mail</strong>
+          <a href="mailto:raff@edno.de">raff@edno.de</a>
+        </div>
+      </div>
+
+      </div>
     </div>
+
+    <p class="contact-orders-note" data-i18n="contact.orders">You can place orders via phone, or e-mail. You will receive a confirmation via e-mail and a request for payment via Paypal.</p>
 
   </div>
 </main>
@@ -64,7 +88,7 @@
   <p><p>&copy; Edition Nordstern, Stuttgart &middot; <span data-i18n="footer.updated">Last updated:</span>copy; Edition Nordstern, Stuttgart &middot; <a href="impressum.html">Impressum</a> &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
 </footer>
 
-<script src="lang.js?v=2"></script>
+<script src="lang.js?v=4"></script>
 
 <script>
   const toggle = document.querySelector('.nav-toggle');
