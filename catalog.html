@@ -451,13 +451,13 @@
 
     var headerContent = _logoBase64
       ? { columns: [
-            { image: _logoBase64, width: 44, margin: [0, 2, 12, 0] },
             { stack: [
                 { text: 'Edition Nordstern', style: 'mainTitle', margin: [0, 0, 0, 2] },
                 { text: isDE ? 'Vollständiger Katalog' : 'Complete Catalog', style: 'subTitle', margin: [0, 0, 0, 2] },
                 { text: (isDE ? 'Stand: ' : 'As of: ') + today, style: 'dateLine' }
               ]
-            }
+            },
+            { image: _logoBase64, width: 30, alignment: 'right', margin: [0, 0, 0, 0] }
           ], margin: [0, 0, 0, 8] }
       : [
           { text: 'Edition Nordstern', style: 'mainTitle', margin: [0, 0, 0, 2] },
