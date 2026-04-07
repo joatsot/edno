@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Edition Nordstern catalog of publications — works by Raff, Draeseke, Halévy, Lachner, Lindpaintner, Lortzing, and Pacini.">
   <title>Edition Nordstern — Catalog</title>
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  <link rel="stylesheet" href="style.css?v=10">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" defer></script>
 </head>
 <body>
 
@@ -84,7 +84,7 @@
 </main>
 
 <footer class="site-footer">
-  <p><p>&copy; Edition Nordstern, Stuttgart &middot; <span data-i18n="footer.updated">Last updated:</span>copy; Edition Nordstern, Stuttgart &middot; <a href="impressum.html">Impressum</a> &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
+  <p>&copy; Edition Nordstern, Stuttgart &middot; <a href="impressum.html">Impressum</a> &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
 </footer>
 
 <script src="lang.js?v=4"></script>
@@ -402,6 +402,12 @@
       });
       document.getElementById('no-results').style.display = (query && totalVisible === 0) ? 'block' : 'none';
     }
+    var banner = document.querySelector('.catalog-header');
+    var siteHeader = document.querySelector('.site-header');
+    if (banner) {
+      var scrollTarget = banner.offsetTop + banner.offsetHeight - (siteHeader ? siteHeader.offsetHeight : 0);
+      window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+    }
   }
 
   // ============================================================
@@ -411,16 +417,20 @@
   // ============================================================
   const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwVEev_sLw7wXNzUV6dlCsGO34Z2EDArJwoXRRo5XBoZPh2nV-K9XkH2K7c2Uyi6Tv0Ng/exec';
 
+  function fetchWithTimeout(url, ms) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms);
+    return fetch(url, { signal: ctrl.signal })
+      .then(r => { clearTimeout(timer); if (!r.ok) throw new Error(); return r.json(); })
+      .catch(e => { clearTimeout(timer); throw e; });
+  }
+
   function loadFromJson() {
     return fetch('catalog.json')
       .then(r => { if (!r.ok) throw new Error(); return r.json(); });
   }
 
-  const primary = SHEETS_URL
-    ? fetch(SHEETS_URL).then(r => { if (!r.ok) throw new Error(); return r.json(); })
-    : Promise.reject();
-
-  primary
+  (SHEETS_URL ? fetchWithTimeout(SHEETS_URL, 6000) : Promise.reject())
     .then(data => renderCatalog(data))
     .catch(() => loadFromJson()
       .then(data => renderCatalog(data))

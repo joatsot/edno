@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Links and videos related to Edition Nordstern and Joachim Raff.">
   <title>Edition Nordstern — Links</title>
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=10">
 
 </head>
 <body>
@@ -172,7 +172,7 @@
 </main>
 
 <footer class="site-footer">
-  <p><p>&copy; Edition Nordstern, Stuttgart &middot; <span data-i18n="footer.updated">Last updated:</span>copy; Edition Nordstern, Stuttgart &middot; <a href="impressum.html">Impressum</a> &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
+  <p>&copy; Edition Nordstern, Stuttgart &middot; <a href="impressum.html">Impressum</a> &middot; <span data-i18n="footer.updated">Last updated:</span> <span id="footer-date">April 2026</span> &middot; <a href="mailto:raff@edno.de">raff@edno.de</a></p>
 </footer>
 
 <script src="lang.js?v=4"></script>
@@ -186,6 +186,10 @@
   });
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+  window.addEventListener('load', function() {
+    var main = document.querySelector('main.main-content');
+    if (main) main.scrollIntoView({ behavior: 'smooth' });
   });
 </script>
 
